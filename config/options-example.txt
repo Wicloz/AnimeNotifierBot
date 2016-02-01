@@ -1,0 +1,8 @@
+[Credentials]
+; Credentials of the bot
+Username = email@domain.com
+Password = password1234
+
+[Chat]
+; Prefix for all the chat commands
+CommandPrefix = !!
