@@ -50,7 +50,7 @@ class AnimeBot(discord.Client):
                 #    await self.handle_check_for_user(user)
                 #except:
                 #    print('Could not check updates for %s' % user.userId)
-            await asyncio.sleep(60)
+            await asyncio.sleep(300)
     
     async def on_ready(self):
         win_unicode_console.enable()
