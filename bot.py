@@ -1,6 +1,7 @@
 import asyncio
 import discord
 import win_unicode_console
+import pip
 
 try:
     from lxml import html
