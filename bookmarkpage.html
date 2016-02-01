@@ -1,0 +1,1466 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	
+    Bookmark list
+
+</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta property="fb:admins" content="100006233868825" /><meta property="fb:app_id" content="130397647116314" />
+<script type="text/javascript" src="/Scripts/jquery17.min.js"></script>
+<!-- CSS -->
+<link href="/Content/css/tpl_style.css?v=5" rel="stylesheet" type="text/css" />
+<link href="/Content/css/upload-progress.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="/Content/images/favicon.ico" type="image/x-icon" />
+<script type="text/javascript" src="/Scripts/google.js"></script>
+<!--[if IE 6]><link href="/Content/css/tpl_ie_6.css"  rel="stylesheet" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/Content/css/tpl_ie_7.css" /><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" type="text/css" href="/Content/css/tpl_ie_7.css" /><![endif]-->
+
+    <meta name="description" content="Bookmark list" />
+    <meta name="keywords" content="Bookmark list" />
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-1712467-11']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+
+    <div id="containerRoot">
+        <div id="head">
+            <h3>
+                
+<div style="position: relative; text-align: right; margin: -40px 46px 20px 0px; font: bold 13px Arial;">
+    
+    <div id="topHolderBox" style="width: 140px; height: 30px;">
+        <img src="https://kissanime.to/Content/images/user-small.png" style="vertical-align: middle; margin-bottom: 5px">
+        <span style="color: #888">Hi</span>&nbsp;&nbsp;&nbsp;<a id="aDropDown" class="boxDropDown"
+            style="margin-top: -7px; cursor: pointer; width: 110px"><span>
+                Wicloz <span class="clsHadUnread"></span>
+                
+                <small style="color: #8D65A0">?</small></span></a>
+        <div id="menu_box" style="display: none">
+            <a href="https://kissanime.to/BookmarkList">&nbsp;&nbsp;<img
+                src="https://kissanime.to/Content/images/bookmark1.png" />&nbsp;Bookmark list
+                <span class="clsHadUnread">...</span></a> <a href="https://kissanime.to/Profile">
+                    &nbsp;&nbsp;<img src="https://kissanime.to/Content/images/change.png" />&nbsp;Profile</a>        
+            <a href="/Message/GetKPoint">
+                    &nbsp;&nbsp;<img src="https://kissanime.to/Content/images/kpoint.png" />&nbsp;KPoint: 0</a>
+            
+               <a href="/Message/GoPremium">&nbsp;&nbsp;<img src="https://kissanime.to/Content/images/genre.png" />&nbsp;Go Premium</a>
+              
+             <a href="https://kissanime.to/Logout">
+                    &nbsp;&nbsp;<img src="https://kissanime.to/Content/images/logout.png" />&nbsp;Logout</a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var hasUnRead = false;
+        
+        function NotifyUnReadUser() {
+            if (hasUnRead == true)
+                $('.clsHadUnread').html('(!)');
+        }
+    
+    </script>
+
+    
+            <script type="text/javascript">
+                var isChecking = false;
+                $('#topHolderBox').mouseover(function () {
+                    if (!isChecking) {
+                        isChecking = true;
+                        $.ajax(
+                        {
+                            type: "POST",
+                            url: "/CheckHasUnread",
+                            success: function (message) {
+                                if (message != "") {
+                                    if (message == 'true') {
+                                        hasUnRead = true;
+                                        NotifyUnReadUser();
+                                    }
+                                }
+                            }
+                        });
+                    }
+                });
+            </script>
+        
+
+    
+
+    <script type="text/javascript">
+        var _0x9f16 = ["\x77\x69\x64\x74\x68", "\x23\x61\x44\x72\x6F\x70\x44\x6F\x77\x6E", "\x23\x74\x6F\x70\x48\x6F\x6C\x64\x65\x72\x42\x6F\x78", "\x6C\x65\x66\x74", "\x23\x6D\x65\x6E\x75\x5F\x62\x6F\x78", "\x63\x73\x73", "\x64\x69\x73\x70\x6C\x61\x79", "\x6E\x6F\x6E\x65", "\x62\x6C\x6F\x63\x6B", "\x6D\x6F\x75\x73\x65\x6F\x76\x65\x72", "\x2E\x62\x6F\x78\x44\x72\x6F\x70\x44\x6F\x77\x6E", "\x6D\x6F\x75\x73\x65\x6C\x65\x61\x76\x65"]; var userBarWidth = $(_0x9f16[1])[_0x9f16[0]](); $(_0x9f16[1])[_0x9f16[0]](userBarWidth + 30); $(_0x9f16[2])[_0x9f16[0]]($(_0x9f16[2])[_0x9f16[0]]() + userBarWidth); $(_0x9f16[4])[_0x9f16[5]](_0x9f16[3], 389 - $(_0x9f16[4])[_0x9f16[0]]()); function HideBox() { $(_0x9f16[4])[_0x9f16[5]](_0x9f16[6], _0x9f16[7]); }; function UnhideBox() { $(_0x9f16[4])[_0x9f16[5]](_0x9f16[6], _0x9f16[8]); }; $(_0x9f16[10])[_0x9f16[9]](function () { UnhideBox(); }); $(_0x9f16[4])[_0x9f16[11]](function () { HideBox(); });        
+    </script>
+    
+</div>
+
+                <div id="search" style="position: relative">
+                    <form id="formSearch" method="post">
+                    <p>
+                        <input style="width: 250px" id="keyword" name="keyword"
+                            value="" class="text" autocomplete="off" />
+                        <input id="imgSearch" type="image" src="https://kissanime.to/Content/images/search.png"
+                            class="button" onclick="return false;" />
+                    </p>
+                    <div id="result_box" style="display: none; left: 57px; margin-top: -3px; max-height: 300px; overflow-y: auto; overflow-x: hidden;">
+                    </div>
+                    <div style="float: left; width: 210px; text-align: left; margin-left: 58px;">
+                        <div style="float: left; width: 85px">
+                            <!-- Place this tag where you want the +1 button to render. -->
+                            <div class="g-plusone" data-size="medium" data-href="http://kissanime.com">
+                            </div>
+                            <!-- Place this tag after the last +1 button tag. -->
+                            <script type="text/javascript">
+                                (function () {
+                                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                    po.src = 'https://apis.google.com/js/plusone.js';
+                                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                })();
+                            </script>
+                        </div>
+                    </div>
+                    <div style="margin: 10px 48px 10px 0">
+                        <a href="https://kissanime.to/AdvanceSearch">
+                            <img src="https://kissanime.to/Content/images/read.png"
+                                width="16px" border="0" style="vertical-align: middle" />&nbsp;&nbsp;Advanced
+                            Search</a>
+                    </div>
+                    </form>
+                </div>
+                <script type="text/javascript">
+                    $('#imgSearch').click(function () {
+                        Submit();
+                    });
+
+                    var delay = (function(){
+                          var timer = 0;
+                          return function(callback, ms){
+                            clearTimeout (timer);
+                            timer = setTimeout(callback, ms);
+                          };
+                        })();
+
+                    $('#keyword').keyup(function() {
+                        delay(function(){
+                          Suggest();
+                        }, 500 );
+                    });
+
+                    $('#selectSearch').change(function () {
+                        Suggest();
+                    });
+
+                    $("#selectSearch option").each(function () {
+                        var url = location.href;
+                        if (url.indexOf($(this).attr('value')) != -1)
+                            $(this).attr("selected", "selected");
+                    });
+
+                    function Submit() {
+                        if ($.trim($('#keyword').val()).length < 2) {
+                            $('#keyword').blur();
+                            alert('Keyword must be more than one character!');
+                        }
+                        else {
+                            $("#formSearch").attr('action', "/Search/Anime");
+                            $("#formSearch").submit();
+                        }
+                    }                    
+
+                    function Suggest() {
+                        var keyword = $.trim($('#keyword').val());
+                        if (keyword != "" && $.trim($('#keyword').val()).length > 1) {
+                            $('#result_box').html("<span id='loader'></span>");
+                            $('#result_box').css('display', 'block');
+                            $.ajax(
+                            {
+                                type: "POST",
+                                url: "/Search/SearchSuggest",
+                                data: "type=Anime" + '&keyword=' + keyword,
+                                success: function (message) {
+                                    if (message != "") {
+                                        message += '<a href="#" onclick="return false;">---------------</a>';
+                                        message += '<a href="#" onclick="return false;">PRESS ENTER TO SEARCH...</a>';
+
+                                        $('#result_box').html(message);
+                                    }
+                                    else {
+                                        $('#result_box').html('<a href="#" onclick="return false;">PRESS ENTER TO SEARCH...</a>');
+                                    }
+                                }
+                            });
+                        }
+                        else {
+                            $('#result_box').html('');
+                            $('#result_box').css('display', 'none');
+                        }
+                    }
+                </script>
+            </h3>
+            <h1>
+                <a href="https://kissanime.to" title="KissAnime.to - High quality anime online"
+                    class="logo">KissAnime.to</a></h1>
+        </div>        
+        <!-- end div head -->
+        <div class="clear">
+        </div>
+        <div id="headnav">
+            
+<div id="navbar">
+    <div id="navcontainer">
+        <ul>
+            <li id="liHome"><a href="https://kissanime.to">Home</a></li>
+            <li id="liDS"><a href="https://kissanime.to/AnimeList">Anime
+                list</a></li>
+            <li id="li1"><a target="_blank" rel="nofollow" href="http://kisscartoon.me">Cartoon list</a></li>
+            <li id="liMobile"><a href="/M">MOBILE</a></li>
+            <li id="liReportError"><a href="/Message/ReportError">Report/Request</a></li>            
+            <li id="liCommunity"><a rel="nofollow" target="_blank" href="http://forum.kissanime.com">
+                Forum</a></li>
+            <li id="liReadManga"><a rel="nofollow" target="_blank" href="http://kissmanga.com">Read Manga</a></li>
+            <li id="liWatchDrama"><a rel="nofollow" target="_blank" href="http://kissasian.com">Watch Drama</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var path = 'Anime';
+    if (path == 'Home')
+        $('#liHome a').attr('id', 'currentTab');
+    else if (path == 'Anime' || path == 'Genre' || path == 'Group')
+        $('#liDS a').attr('id', 'currentTab');
+    else if (document.URL.indexOf('GoPremium') >= 0)
+        $('#liGoPremium a').attr('id', 'currentTab');
+    else if (document.URL.indexOf('FreeDownload') >= 0)
+        $('#liDS a').attr('id', 'currentTab');
+    else if (document.URL.indexOf('FAQ') >= 0)
+        $('#liFAQ a').attr('id', 'currentTab');
+    else if (path == 'Error')
+        $('#liReport a').attr('id', 'currentTab');
+    else
+        $('#navcontainer a[href*="' + path + '"]').attr('id', 'currentTab');
+</script>
+
+    <div id="navsubbar">
+        <p>
+            <a href="/AnimeList">Sort by alphabet</a>| <a href="/AnimeList/MostPopular">Sort by popularity</a> | <a href="/AnimeList/LatestUpdate">Latest update</a> | <a href="/AnimeList/Newest">
+                    New anime</a>
+        </p>
+    </div>
+
+        </div>        
+        <!-- end div headnav -->
+        
+<style>
+    .tooltip
+    {
+        display: none;
+        background: url('../../Content/images/black_arrow_big.png') no-repeat;
+        height: 180px;
+        padding: 25px 10px 0px 30px;
+        width: 450px;
+        font-size: 11px;
+        color: #fff;
+    }
+
+    .alphabet
+    {
+        background: none repeat scroll 0 0 #161616; 
+        color:gray; 
+        text-align:center; 
+        font-size:14px; 
+    }
+
+    .alphabet a
+    {
+        font-weight:bold;
+    }
+</style>
+<script type="text/javascript" src="../../Scripts/jqueryTooltip.js"></script>
+    <div id="divLoadingOver" style="display:none">
+    <div class="loading_page">    
+    </div>
+    <div class="loading_text">Loading...</div>
+    </div>
+    <div id="container" style="text-align: left">        
+            <div class="bigBarContainer">
+                <div class="barTitle">
+                    Bookmark list
+                </div>
+                <div class="barContent">
+                    <div class="arrow-general">
+                        &nbsp;</div>
+                    <div style="position:relative">                    
+                    
+                <div style="font-size:11px;position:absolute; right:5px; top: 0px">
+                TIPS:<br />
+                - Empty folder will be automatically removed.<br />
+                - When anime has new episode, its status will be changed to 'Unwatched'.
+                </div>
+                <div id="divEmailNotify">
+                    <input type="checkbox" id="chbEmailNotify" checked /> Notify via email when new episode(s) come out
+                </div>
+                <img id="imgLoaderNotify" src="../../Content/images/loader.gif" style="display: none" />
+                <div class="clear2">&nbsp;</div>
+                <div id="divIsShared">
+                    <input type="checkbox" id="chbIsShared" checked /> Share this list with friends&nbsp;&nbsp;&nbsp;<input style="width: 250px; " name="txtSharedUrl" id="txtSharedUrl" class="txtSignUp" value="https://kissanime.to/MyList/1084174" onclick="this.select();"  title="Share this url with friends so they could see your list" />
+                </div>
+                <img id="imgLoaderShared" src="../../Content/images/loader.gif" style="display: none" />                
+                 <script type="text/javascript">
+                     $('#chbEmailNotify').click(function () {
+                         var checked = 0;
+                         if ($('#chbEmailNotify').attr('checked'))
+                             checked = 1;
+
+                         $('#divEmailNotify').css("display", "none");
+                         $('#imgLoaderNotify').css("display", "inline");
+                         $.ajax(
+                                {
+                                    type: "POST",
+                                    url: "/BookmarkEmailNotify",
+                                    data: "strNotify=" + checked,
+                                    success: function (message) {
+                                        if (message != "") {
+                                            if (message == "redirect") {
+                                                window.location = "/Message/VerifyEmail";
+                                            }
+                                            else {
+                                                $('#imgLoaderNotify').css("display", "none");
+
+                                                //$('#chbEmailNotify').attr('checked', checked);
+                                                $('#divEmailNotify').css("display", "inline");
+                                            }
+                                        }
+                                    }
+                                });
+                     });
+
+                            $('#chbIsShared').click(function () {
+                                var checked = 0;
+                                if ($('#chbIsShared').attr('checked'))
+                                    checked = 1;
+
+                                $('#divIsShared').css("display", "none");
+                                $('#imgLoaderShared').css("display", "inline");
+                                $.ajax(
+                            {
+                                type: "POST",
+                                url: "/BookmarkShare",
+                                data: "strShare=" + checked,
+                                success: function (message) {
+                                    if (message != "") {
+                                        $('#imgLoaderShared').css("display", "none");
+                                        $('#divIsShared').css("display", "inline");
+                                        if (checked == 1)
+                                            $('#txtSharedUrl').show();
+                                        else
+                                            $('#txtSharedUrl').hide();
+                                    }
+                                }
+                            });
+                            });
+                    </script>
+                <div class="clear2" style="padding-top:50px"></div>                
+                
+                <div id="divListCategories" style="font-size: 14px"><span style="font-weight:bold">Folder:</span>&nbsp;&nbsp;<select id="selectListCategories" style="width: 200px"></select>
+                &nbsp;&nbsp;<a href="#" onclick="return false;" id="btnRename" style="display:none"><img src="/Content/images/change.png" style="vertical-align:middle" />&nbsp;Rename</a>
+                </div>
+                               
+                <div class="clear2"></div>
+                <div class="clear2"></div>
+        <table class="listing">
+    <tr class="head">
+        <th width="37%">
+            Anime name
+        </th>
+        <th width="15%">
+            Latest
+        </th>
+        <th width="12%">
+            Status
+        </th>
+        <th width="10%">
+            
+        </th>
+        <th width="26%">
+            
+        </th>
+    </tr>
+
+    <tr style="height: 10px">
+    </tr>
+    
+    <tr class="trAnime" catName="Saturday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-27-2015/31436354576652l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Ajin">Ajin</a>
+                    <p>
+                        Ajin are humans that cannot die. Seventeen years ago, they first appeared on a battlefield in Africa. From then on, more of their kind are discovered within the human society. Their rarity in appearance ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Ajin">
+                Ajin</a>
+        </td>
+        <td>
+            <a href="/Anime/Ajin/Episode-003?id=122329" title="Episode 003">Episode 003</a>
+        </td>
+        <td>
+        
+            <a bdid="23544672" style="display: none" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23544672" style="display: inline" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6048" mname="Ajin" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23544672" catName="Saturday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/12-13-2015/3621615456862258.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Cupid-s-Chocolates">Cupids Chocolates</a>
+                    <p>
+                        Jiang Hao, a normal, high school student who is extremely scared of getting into trouble suddenly becomes the Harem King of his school and gets confessed to by a bunch of beautiful girls! The worst thing ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Cupid-s-Chocolates">
+                Cupid's Chocolates</a>
+        </td>
+        <td>
+            <a href="/Anime/Cupid-s-Chocolates/Episode-009?id=122259" title="Episode 009">Episode 009</a>
+        </td>
+        <td>
+        
+            <a bdid="23586749" style="display: none" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23586749" style="display: inline" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6132" mname="Cupid's Chocolates" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23586749" catName="" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Sunday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-27-2015/98986454574938l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Dimension-W">Dimension W</a>
+                    <p>
+                        In the year 2072, the worlds energy problems seem solved by a network of cross-dimensional electric-field inductors&mdash;"coils"&mdash;that extract energy from a seemingly infinite source. That source ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Dimension-W">
+                Dimension W</a>
+        </td>
+        <td>
+            <a href="/Anime/Dimension-W/Episode-004?id=122335" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23758224" style="display: none" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23758224" style="display: inline" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6051" mname="Dimension W" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23758224" catName="Sunday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Friday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-27-2015/96591954576412l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Divine-Gate">Divine Gate</a>
+                    <p>
+                        When the Divine Gate opened, the living world, the heavens, and the underworld became connected, ushering an era of chaos where desires and conflict intersect. To restore order, the World Council is formed. ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Divine-Gate">
+                Divine Gate</a>
+        </td>
+        <td>
+            <a href="/Anime/Divine-Gate/Episode-004?id=122295" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23521551" style="display: none" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23521551" style="display: inline" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6056" mname="Divine Gate" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23521551" catName="Friday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Sunday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-27-2015/73611154576727l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Hai-to-Gensou-no-Grimgar">Hai to Gensou no Grimgar</a>
+                    <p>
+                        Why are we here? Why are we doing this?  Before Haruhiro had realized what happened, he was surrounded by darkness. Why was he here? Where was here? Even now, he still didnt know. Those around him were ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Hai-to-Gensou-no-Grimgar">
+                Hai to Gensou no Grimgar</a>
+        </td>
+        <td>
+            <a href="/Anime/Hai-to-Gensou-no-Grimgar/Episode-004?id=122340" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23586872" style="display: none" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23586872" style="display: inline" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6053" mname="Hai to Gensou no Grimgar" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23586872" catName="Sunday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Friday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/12-9-2015/69942254576873l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Koukaku-no-Pandora-Pandora-of-the-Crimson-Shell-Ghost-Urn">Koukaku no Pandora</a>
+                    <p>
+                        When Nanakorobi Nene, a cybernetically enhanced girl-next-door, heads to the island metropolis of Cenancle to live with her aunt, she has no way of knowing whats in store for her. A chance meeting intertwines ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Koukaku-no-Pandora-Pandora-of-the-Crimson-Shell-Ghost-Urn">
+                Koukaku no Pandora</a>
+        </td>
+        <td>
+            <a href="/Anime/Koukaku-no-Pandora-Pandora-of-the-Crimson-Shell-Ghost-Urn/Episode-004?id=122300" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23521545" style="display: none" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23521545" style="display: inline" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6117" mname="Koukaku no Pandora" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23521545" catName="Friday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Monday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-30-2015/95306554577137l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Mahou-Shoujo-Nante-Mou-Ii-Desukara">Mahou Shoujo Nante Mou Ii Desukara.</a>
+                    <p>
+                        Yuzuka Hanami is approached by a mysterious creature that tells her she has the makings of becoming a magical girl. However, Yuzukas magical form has her wearing a swimsuit.
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Mahou-Shoujo-Nante-Mou-Ii-Desukara">
+                Mahou Shoujo Nante Mou Ii Desukara.</a>
+        </td>
+        <td>
+            <a href="/Anime/Mahou-Shoujo-Nante-Mou-Ii-Desukara/Episode-004?id=122357" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23586912" style="display: none" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23586912" style="display: inline" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6074" mname="Mahou Shoujo Nante Mou Ii Desukara." class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23586912" catName="Monday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Thursday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-30-2015/11637654576710l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Ojisan-to-Marshmallow">Ojisan to Marshmallow</a>
+                    <p>
+                        The series is about a man named Kusaka who has a fascination for marshmallows. Kusaka gets involved in a relationship with an office lady named Wakabayashi, and the story focuses on their relationship ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Ojisan-to-Marshmallow">
+                Ojisan to Marshmallow</a>
+        </td>
+        <td>
+            <a href="/Anime/Ojisan-to-Marshmallow/Episode-004?id=122278" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23635334" style="display: none" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23635334" style="display: inline" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6077" mname="Ojisan to Marshmallow" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23635334" catName="Thursday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Sunday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-30-2015/83034954577150l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Ooyasan-wa-Shishunki">Ooyasan wa Shishunki!</a>
+                    <p>
+                        The story follows a boy who has gained an independent life. After moving into his rented apartment, he meets his landlord. The landlord has the physique of a little girl, and she does the cooking and housework ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Ooyasan-wa-Shishunki">
+                Ooyasan wa Shishunki!</a>
+        </td>
+        <td>
+            <a href="/Anime/Ooyasan-wa-Shishunki/Episode-004?id=122337" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23586949" style="display: none" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23586949" style="display: inline" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6070" mname="Ooyasan wa Shishunki!" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23586949" catName="Sunday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Friday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-30-2015/53548254577000l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Oshiete-Galko-chan-Please-tell-me-GALKO-chan">Oshiete! Galko-chan</a>
+                    <p>
+                        Follow the daily school life of Gyaruko-chan, Otako, and Ojyo in this series of comedic short stories. Gyaruko-chan has a tendency to speak rudely, but shes basically friends with everyone. Otako is the ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Oshiete-Galko-chan-Please-tell-me-GALKO-chan">
+                Oshiete! Galko-chan</a>
+        </td>
+        <td>
+            <a href="/Anime/Oshiete-Galko-chan-Please-tell-me-GALKO-chan/Episode-004?id=122297" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23586618" style="display: none" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23586618" style="display: inline" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6071" mname="Oshiete! Galko-chan" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23586618" catName="Friday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Friday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-30-2015/50695354576983l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Sekkou-Boys">Sekkou Boys</a>
+                    <p>
+                        Four gypsum images with quirky personalities are part of an idol unit produced by a rookie female manager. The four members are soldier saint George, the amorous god of war Mars, the multitalent with a ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Sekkou-Boys">
+                Sekkou Boys</a>
+        </td>
+        <td>
+            <a href="/Anime/Sekkou-Boys/Episode-004?id=122296" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23586617" style="display: none" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23586617" style="display: inline" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6068" mname="Sekkou Boys" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23586617" catName="Friday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Thursday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-30-2015/56516954576236l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Sushi-Police">Sushi Police</a>
+                    <p>
+                        With the 2020 Tokyo Olympic Games around the corner, theres also a worldwide sushi boom!  But what to do with all the bastardized sushi out there?  The Japanese governments urgent response is to team ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Sushi-Police">
+                Sushi Police</a>
+        </td>
+        <td>
+            <a href="/Anime/Sushi-Police/Episode-004?id=122272" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23586979" style="display: none" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23586979" style="display: inline" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6078" mname="Sushi Police" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23586979" catName="Thursday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Monday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/12-22-2015/88328554577381l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Teekyuu-7">Teekyuu 7</a>
+                    <p>
+                        Seventh season of the Teekyuu series.
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Teekyuu-7">
+                Teekyuu 7</a>
+        </td>
+        <td>
+            <a href="/Anime/Teekyuu-7/Episode-076?id=122358" title="Episode 076">Episode 076</a>
+        </td>
+        <td>
+        
+            <a bdid="23586981" style="display: none" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23586981" style="display: inline" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6167" mname="Teekyuu 7" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23586981" catName="Monday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Thursday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-27-2015/846180545178037.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Ansatsu-Kyoushitsu-TV-2nd-Season">Ansatsu Kyoushitsu (TV) 2nd Season</a>
+                    <p>
+                        The second season of Ansatsu Kyoushitsu.
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Ansatsu-Kyoushitsu-TV-2nd-Season">
+                Ansatsu Kyoushitsu (TV) 2nd Season</a>
+        </td>
+        <td>
+            <a href="/Anime/Ansatsu-Kyoushitsu-TV-2nd-Season/Episode-004?id=122277" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23586745" style="display: inline" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23586745" style="display: none" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6045" mname="Ansatsu Kyoushitsu (TV) 2nd Season" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23586745" catName="Thursday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Thursday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-27-2015/86977454576932l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Boku-dake-ga-Inai-Machi">Boku dake ga Inai Machi</a>
+                    <p>
+                        Struggling manga author Satoru Fujinuma is beset by his fear to express himself. However, he has a supernatural ability of being forced to prevent deaths and catastrophes by being sent back in time before ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Boku-dake-ga-Inai-Machi">
+                Boku dake ga Inai Machi</a>
+        </td>
+        <td>
+            <a href="/Anime/Boku-dake-ga-Inai-Machi/Episode-004?id=122281" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23521606" style="display: inline" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23521606" style="display: none" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6049" mname="Boku dake ga Inai Machi" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23521606" catName="Thursday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="">        
+        <td title='
+                <img width="120" height="150" src="http://kissanime.to/Uploads/Etc/8-15-2015/51306254574803l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Chu-Feng-BEE">Chu Feng: BEE</a>
+                    <p>
+                        In 2017, a group of genius scientists achieve a remarkable breakthrough in bioengineering. However, all the new technologies are put into military use, beginning a new round of arms race. Vanguards, as ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Chu-Feng-BEE">
+                Chu Feng: BEE</a>
+        </td>
+        <td>
+            <a href="/Anime/Chu-Feng-BEE/Episode-005?id=121392" title="Episode 005">Episode 005</a>
+        </td>
+        <td>
+        
+            <a bdid="23586834" style="display: inline" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23586834" style="display: none" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="5358" mname="Chu Feng: BEE" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23586834" catName="" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Friday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/12-9-2015/7428954576277l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Dagashi-Kashi">Dagashi Kashi</a>
+                    <p>
+                        Shikada Kokonotsus father owns a rural sweets shop, and his plan is for Kokonotsu to take it over one day. However, Kokonotsu wants to be a manga author instead! One day in summer, the cute but weird ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Dagashi-Kashi">
+                Dagashi Kashi</a>
+        </td>
+        <td>
+            <a href="/Anime/Dagashi-Kashi/Episode-004?id=122284" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23521597" style="display: inline" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23521597" style="display: none" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6115" mname="Dagashi Kashi" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23521597" catName="Friday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Friday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/1-8-2016/25529354577382l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Gate-Jieitai-Kanochi-nite-Kaku-Tatakaeri-Enryuu-hen">GATE S2</a>
+                    <p>
+                        Second season of the Gate anime.
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Gate-Jieitai-Kanochi-nite-Kaku-Tatakaeri-Enryuu-hen">
+                GATE S2</a>
+        </td>
+        <td>
+            <a href="/Anime/Gate-Jieitai-Kanochi-nite-Kaku-Tatakaeri-Enryuu-hen/Episode-016?id=122301" title="Episode 016">Episode 016</a>
+        </td>
+        <td>
+        
+            <a bdid="23521540" style="display: inline" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23521540" style="display: none" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6046" mname="GATE S2" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23521540" catName="Friday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Friday">        
+        <td title='
+                <img width="120" height="150" src="http://kissanime.to/Uploads/Etc/8-28-2015/80426454575940l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Heavy-Object">Heavy Object (Sub)</a>
+                    <p>
+                        Quenser came to the Alaskan military base to study Objects, the new weapons that have completely revolutionized war as we know it&mdash;battles are fought by soldiers controlling Objects far away from ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Heavy-Object">
+                Heavy Object (Sub)</a>
+        </td>
+        <td>
+            <a href="/Anime/Heavy-Object/Episode-016?id=122299" title="Episode 016">Episode 016</a>
+        </td>
+        <td>
+        
+            <a bdid="23521547" style="display: inline" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23521547" style="display: none" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="5642" mname="Heavy Object (Sub)" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23521547" catName="Friday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Wednesday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-27-2015/89748154575988l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Kono-Subarashii-Sekai-ni-Shukufuku-wo">Kono Subarashii Sekai ni Shukufuku wo!</a>
+                    <p>
+                        The life of Satou Kazuma, a hikikomori who likes games, all too soon came to an end because of a traffic accident... It was supposed to, but when he woke up, a beautiful girl who called herself a goddess ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Kono-Subarashii-Sekai-ni-Shukufuku-wo">
+                Kono Subarashii Sekai ni Shukufuku wo!</a>
+        </td>
+        <td>
+            <a href="/Anime/Kono-Subarashii-Sekai-ni-Shukufuku-wo/Episode-003?id=122257" title="Episode 003">Episode 003</a>
+        </td>
+        <td>
+        
+            <a bdid="23586761" style="display: inline" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23586761" style="display: none" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6052" mname="Kono Subarashii Sekai ni Shukufuku wo!" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23586761" catName="Wednesday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Wednesday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-27-2015/3911054576723l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Musaigen-no-Phantom-World">Musaigen no Phantom World</a>
+                    <p>
+                        In the near future, spirits and monsters are in full sight. A boy leads a group of people with special abilities as they plot against a massive organization that takes advantage of a certain incident and ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Musaigen-no-Phantom-World">
+                Musaigen no Phantom World</a>
+        </td>
+        <td>
+            <a href="/Anime/Musaigen-no-Phantom-World/Episode-004?id=122258" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23586758" style="display: inline" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23586758" style="display: none" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6050" mname="Musaigen no Phantom World" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23586758" catName="Wednesday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Friday">        
+        <td title='
+                <img width="120" height="150" src="https://kissanime.to/Uploads/Etc/11-27-2015/36729054575797l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Norn9-Norn-Nonet">Norn9: Norn+Nonet</a>
+                    <p>
+                        The story takes place a little in the future. Guided by one particular song, young elementary school student Suzuhara Sorata, from the Heisei Era, is warped through a time skip to an unfamiliar place that ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Norn9-Norn-Nonet">
+                Norn9: Norn+Nonet</a>
+        </td>
+        <td>
+            <a href="/Anime/Norn9-Norn-Nonet/Episode-004?id=122280" title="Episode 004">Episode 004</a>
+        </td>
+        <td>
+        
+            <a bdid="23521560" style="display: inline" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23521560" style="display: none" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="6060" mname="Norn9: Norn+Nonet" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23521560" catName="Friday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="Saturday">        
+        <td title='
+                <img width="120" height="150" src="http://kissanime.to/Uploads/Etc/9-4-2015/98774054575968l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Utawarerumono-Itsuwari-no-Kamen">Utawarerumono: Itsuwari no Kamen</a>
+                    <p>
+                        When I came to, I realized I was standing in the middle of a vast, snowy plain I knew nothing of. I didnt know how I got there. And to add to that, I couldnt remember anything, not even my name. I stood ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Utawarerumono-Itsuwari-no-Kamen">
+                Utawarerumono: Itsuwari no Kamen</a>
+        </td>
+        <td>
+            <a href="/Anime/Utawarerumono-Itsuwari-no-Kamen/Episode-017?id=122321" title="Episode 017">Episode 017</a>
+        </td>
+        <td>
+        
+            <a bdid="23586626" style="display: inline" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23586626" style="display: none" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="5662" mname="Utawarerumono: Itsuwari no Kamen" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23586626" catName="Saturday" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+    <tr class="trAnime" catName="">        
+        <td title='
+                <img width="120" height="150" src="http://kissanime.to/Uploads/Etc/10-7-2015/75218654569999l.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Anime/Yaoguai-Mingdan">Yaoguai Mingdan</a>
+                    <p>
+                        A foxy temptress. A strange misty tree demon. A girl with the power of the goddess Xianjia! Being caught between these women is a feat in it of itself, but our hero Feng Xi must fight in order to protect ...
+                    </p>
+                </div>'>
+            <a class="aAnime" href="/Anime/Yaoguai-Mingdan">
+                Yaoguai Mingdan</a>
+        </td>
+        <td>
+            <a href="/Anime/Yaoguai-Mingdan/Episode-010?id=122026" title="Episode 010">Episode 010</a>
+        </td>
+        <td>
+        
+            <a bdid="23587041" style="display: inline" class="aRead" href="#" onclick="return false;" title="Click to mark as Unwatched. When anime has new episode, its status will be changed to 'Unwatched'."><img border="0" style="vertical-align:middle" src="/Content/Images/include.png" /> Watched</a>
+            <a bdid="23587041" style="display: none" class="aUnRead" href="#" onclick="return false;" title="Click to mark as Watched"><img border="0" style="vertical-align:middle" src="/Content/Images/notread.png" /> Unwatched</a>
+        </td>
+        <td>
+            <a mid="5827" mname="Yaoguai Mingdan" class="aRemove" href="#" onclick="return false;" title="Remove from bookmark list"><img border="0" style="vertical-align:middle" src="/Content/Images/exclude.png" /> Remove</a>   
+        </td>
+        <td>
+            <a bdid="23587041" catName="" class="aCategory" href="#" onclick="return false;" title="Move to other folder"><img border="0" style="vertical-align:middle" src="/Content/Images/folder.png" /> Folder</a>   
+        </td>
+    </tr>
+    
+</table>
+
+
+<script type="text/javascript">
+    $(".listing td[title]").tooltip({ offset: [10, 200], effect: 'slide', predelay: 300 }).dynamic({ bottom: { direction: 'down', bounce: true} });
+    var strUncate = ' Uncategorized';
+    var strAll = ' All Anime';
+
+    // begin categories section
+
+    var lstCats = new Array();
+    
+        lstCats.push("Saturday");
+        
+        lstCats.push("Sunday");
+        
+        lstCats.push("Friday");
+        
+        lstCats.push("Monday");
+        
+        lstCats.push("Thursday");
+        
+        lstCats.push("Wednesday");
+            
+    lstCats.push(strUncate);
+    lstCats.sort();   
+
+    function CreateCategoriesDropDown(except)
+    {
+        if (except == '')
+            except = strUncate;
+
+        var result = $('<select class="selectCats" />');
+        $('<option />', {value: '0', text: 'Choose one'}).appendTo(result);
+        $('<option />', {value: '1', text: '- Create new...'}).appendTo(result);
+        result.css('width', '200px');
+        result.css('font-size', '14px');
+
+        for(var i in lstCats) {
+            if (lstCats[i] != except)
+                $('<option />', {value: lstCats[i], text: '- ' + lstCats[i]}).appendTo(result);
+        }
+
+        return result;
+    }
+
+    function InitTopSelectCategoryDropDown(selectVal)
+    {
+        $('#selectListCategories option').remove();
+        var element = $('#selectListCategories');
+        
+        $('<option />', {value: strAll, text: strAll}).appendTo(element);
+        for(var i in lstCats) {
+            $('<option />', {value: lstCats[i], text: lstCats[i]}).appendTo(element);
+        }       
+
+        if (selectVal != '')
+        {
+            element.val(selectVal);
+            ChangeCategory(selectVal);            
+        }
+        else
+            ChangeCategory(strAll);
+    }
+    var param = document.URL.split('?name=')[1];
+    if (typeof param === 'undefined')
+        InitTopSelectCategoryDropDown('');
+    else
+        InitTopSelectCategoryDropDown(decodeURIComponent(param));
+
+    function RemoveStringInArray(array, search_term)
+    {
+        for (var i=array.length-1; i>=0; i--) {
+            if (array[i] === search_term) {
+                array.splice(i, 1);                
+            }
+        }
+    }
+
+    function SetCategory(categoryName, aCategoryElement)
+    {        
+        if (categoryName == strUncate)
+            categoryName = "";
+        $('#divLoadingOver').show();
+        $.ajax(
+            {
+                type: "POST",
+                url: "/ChangeBookmarkCategory",
+                data: "bdid=" + aCategoryElement.attr('bdid') + "&category=" + categoryName,
+                success: function (message) {
+                    if (message != "!error!") {                        
+                        $('#divLoadingOver').hide();
+                        var selectedVal = $('#selectListCategories').val();  
+                        
+                        aCategoryElement.attr('catName', message);
+                        aCategoryElement.parents('tr').attr('catName', message); 
+
+                        if (message != '')
+                        {                            
+                            if ($.inArray(message, lstCats) == -1) // not found
+                            {
+                                lstCats.push(message);
+                                lstCats.sort();
+
+                                InitTopSelectCategoryDropDown(selectedVal);
+                            }
+                        }                                                                    
+
+                        
+                        if (selectedVal != strAll)
+                        {
+                            aCategoryElement.parents('tr').toggle('normal');
+                        }
+                        else
+                        {
+                            $('.selectCats').remove();
+                        }
+
+//                        if ($("tr.trAnime:visible").length == 0 && selectedVal != strUncate)
+//                        {
+//                            RemoveStringInArray(lstCats, selectedVal);
+//                        }                        
+                    }
+                    else {
+                        element.parent().html("Error!");
+                    }
+                }
+            });
+    }
+
+    function ChangeCategory(categoryName)
+    {
+        if (categoryName != strUncate && categoryName != strAll)
+            $('#btnRename').show();
+        else
+            $('#btnRename').hide();
+
+        if (categoryName == strUncate)
+            categoryName = '';
+
+        var odd = true;
+
+        $("tr.trAnime").removeClass('odd');
+        $(".aCategory").show();
+        $('.selectCats').remove();
+
+        if (categoryName == strAll)
+        {
+            $("tr.trAnime").show();            
+            $(".aCategory[catname!='']").hide();
+                $("tr.trAnime").each(function(){
+                    if (odd)
+                    {
+                        odd = false;
+                        $(this).addClass('odd');
+                    }
+                    else
+                    {
+                        odd = true;
+                    }
+                });
+        }
+        else
+        {
+            $("tr.trAnime").hide();        
+            $("tr.trAnime[catName='" + categoryName + "']").show();
+
+                $("tr.trAnime[catName='" + categoryName + "']").each(function(){
+                    if (odd)
+                    {
+                        odd = false;
+                        $(this).addClass('odd');
+                    }
+                    else
+                    {
+                        odd = true;
+                    }
+                });
+        }
+        
+    }    
+
+    $('body').on('change', '#selectListCategories', function() {
+        var element = $(this);               
+        ChangeCategory(element.val());
+    });
+
+    $('body').on('change', '.selectCats', function() {
+        var element = $(this);               
+        if (element.val() != '0')
+        {
+            var aCategoryEle = element.siblings('.aCategory');
+            if (element.val() == '1') // create new
+            {
+                var newCat = prompt("Please enter folder name (only alphanumeric characters)", "");
+                if (newCat != null && newCat.length < 100) {
+                    SetCategory(newCat, aCategoryEle);                    
+                }
+                else
+                {
+                    ChangeCategory($('#selectListCategories').val());
+                    if (newCat.length >= 100)
+                        alert('Folder name is too long');
+                }                    
+            }
+            else // change to another
+            {
+                SetCategory(element.val(), aCategoryEle);
+            }
+        }
+    });
+
+    $('.aCategory').click(function () {
+        ChangeCategory($('#selectListCategories').val());
+
+        var element = $(this);
+        element.hide();        
+
+        var eleDropDownCats = CreateCategoriesDropDown(element.attr('catName'));
+        element.after(eleDropDownCats);
+    });
+    
+    $('#btnRename').click(function(){
+        var selectedName = $('#selectListCategories').val();
+        var newName = prompt("Please enter new folder name (only alphanumeric characters)", selectedName);
+        if (newName != null && newName.length < 100 && selectedName != newName) {
+            $.ajax(
+            {
+                type: "POST",
+                url: "/ChangeBookmarkCategoryName",
+                data: "oldName=" + selectedName + "&newName=" + newName,
+                success: function (message) {
+                    if (message != "!error!") {                        
+                        $('#divLoadingOver').hide();
+                        
+                        location.href = '/BookmarkList?name=' + message;
+                    }
+                    else {
+                        element.parent().html("Error!");
+                    }
+                }
+            });
+        }
+        else
+        {
+            ChangeCategory(selectedName);
+            if (newCat.length >= 100)
+                alert('Folder name is too long');
+        }                    
+    });
+
+    // end categories section
+
+
+    $('.aRemove').click(function () {
+        var element = $(this);
+
+        var isSure = confirm("Do you want to remove anime \"" + element.attr('mname') + "\" from bookmark list?");
+        if (isSure) {
+            element.css("display", "none");
+            $('#divLoadingOver').show();
+            $.ajax(
+            {
+                type: "POST",
+                url: "/Bookmark/" + element.attr('mid') + "/remove",
+                success: function (message) {
+                    if (message != "") {
+                        $('#divLoadingOver').hide();                        
+                        element.parents('tr').hide('normal', function(){ element.parents('tr').remove(); });
+                    }
+                    else {
+                        element.parent().html("Error!");
+                    }
+                }
+            });
+        }
+    });
+
+    $('.aRead').click(function () {
+        var element = $(this);
+        element.css("display", "none");
+        $('#divLoadingOver').show();
+        $.ajax(
+            {
+                type: "POST",
+                url: "/MarkBookmarkDetail",
+                data: "bdid=" + element.attr('bdid') + "&strAlreadyRead=0",
+                success: function (message) {
+                    if (message != "") {
+                        element.siblings('.aUnRead').css("display", "inline");
+                        $('#divLoadingOver').hide();
+                    }
+                    else {
+                        element.parent().html("Error!");
+                    }
+                }
+            });
+        });
+
+        $('.aUnRead').click(function () {
+            var element = $(this);
+            element.css("display", "none");
+            $('#divLoadingOver').show();
+            $.ajax(
+            {
+                type: "POST",
+                url: "/MarkBookmarkDetail",
+                data: "bdid=" + element.attr('bdid') + "&strAlreadyRead=1",
+                success: function (message) {
+                    if (message != "") {
+                        element.siblings('.aRead').css("display", "inline");
+                        $('#divLoadingOver').hide();
+                    }
+                    else {
+                        element.parent().html("Error!");
+                    }
+                }
+            });
+        });
+</script>
+
+                    </div>
+                </div>
+            </div>
+            <div style="height:80px">&nbsp;</div>
+    </div>    
+    
+
+        <!-- end div container -->
+        <div class="clear">
+            &nbsp;</div>
+        <div class="clear">
+            &nbsp;</div>
+        <div class="clear">
+            &nbsp;</div>
+        
+<div style="z-index: 0; position: absolute; top: 220px; left: 0px; width: 100%; height: 768px;
+    overflow: hidden; visibility: hidden">
+    <div id="divFloatLeft" style="position: absolute; visibility: visible; left: -2000px">
+        <script type="text/javascript">
+            if (!window.BB_a) { BB_a = []; } if (!window.BB_ind) { BB_ind = 0; } if (!window.BB_vrsa) { BB_vrsa = 'v2'; } if (!window.BB_r) { BB_r = Math.floor(Math.random() * 1000000000) } BB_ind++; BB_a.push({ "pl": "23", "index": BB_ind });
+        </script>
+        <script>
+            document.write('<scr' + 'ipt async id="BB_SLOT_' + BB_r + '_' + BB_ind + '" src="//st.bebi.com/bebi_' + BB_vrsa + '.js"></scr' + 'ipt>');
+        </script>
+    </div>
+    <div id="divFloatRight" style="position: absolute; visibility: visible; right: -2000px">
+        <script type="text/javascript">
+            if (!window.BB_a) { BB_a = []; } if (!window.BB_ind) { BB_ind = 0; } if (!window.BB_vrsa) { BB_vrsa = 'v2'; } if (!window.BB_r) { BB_r = Math.floor(Math.random() * 1000000000) } BB_ind++; BB_a.push({ "pl": "23", "index": BB_ind });
+        </script>
+        <script>
+            document.write('<scr' + 'ipt async id="BB_SLOT_' + BB_r + '_' + BB_ind + '" src="//st.bebi.com/bebi_' + BB_vrsa + '.js"></scr' + 'ipt>');
+        </script>
+    </div>
+</div>
+<script type="text/javascript">
+    function DoAdsPosition() {
+        var browserWidth = $(window).width();
+        var webWidth = 1000;
+        var bannerWidth = 336;
+        var blankWidth = (browserWidth - webWidth) / 2;
+        var margin = 15;
+
+        $('#divFloatLeft').css('left', browserWidth - webWidth - blankWidth - bannerWidth - margin);
+        $('#divFloatLeft').show();
+
+        $('#divFloatRight').css('right', browserWidth - webWidth - blankWidth - bannerWidth - margin);
+        $('#divFloatRight').show();
+    }
+
+    DoAdsPosition();
+    $(window).resize(function () {
+        DoAdsPosition();
+    });
+</script>
+        
+    </div>
+    
+    <div id="footer">
+        <div id="footcontainer" style="position: relative">
+            <p>
+                From 2012 - 2015 <a href="/">KissAnime.to</a>. Copyrights and trademarks for the anime, and other promotional materials are held by their respective owners and their use is allowed under the fair use clause of the Copyright Law. 
+
+<a href="/Message/PrivacyPolicy">Privacy Policy</a>&nbsp;|&nbsp;<a href="/Message/ReportError">Contact us</a>&nbsp;|&nbsp;<a href="http://kisscartoon.me/">Watch cartoons online</a>&nbsp;&nbsp;</p>               
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('#footer').css('top', $(document).height() - $('#containerRoot').height());
+    </script>
+</body>
+</html>

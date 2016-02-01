@@ -123,4 +123,4 @@ class KissDownloader():
 
         print("Success!")
         #ASSUMING PAGE IS LOADED STARTING HERE
-        return r.content;
+        return str(r.content);
