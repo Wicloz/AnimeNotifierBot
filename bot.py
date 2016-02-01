@@ -22,11 +22,21 @@ class AnimeBot(discord.Client):
             second = line.find('\'', first, equalPos)
             third = line.find('\'', equalPos) + 1
             fourth = line.find('\'', third)
-            self.users.append(User(line[first:second], line[third:fourth]))
+            user = User(line[first:second], line[third:fourth])
+            self.users.append(user)
         
     def run(self):
         return super().run(self.config.username, self.config.password)
-        
+    
+    async def event_loop(self):
+        while True:
+            for user in self.users:
+                try:
+                    await self.handle_check_for_user(user)
+                except:
+                    print('Could not check updates for %s' % user.userId)
+            await asyncio.sleep(60)
+    
     async def on_ready(self):
         win_unicode_console.enable()
 
@@ -35,31 +45,30 @@ class AnimeBot(discord.Client):
         print('Bot ID: %s' % self.user.id)
         print()
 
-        print("Command prefix is %s" % self.config.command_prefix)
+        print('Command prefix is %s'% self.config.command_prefix)
         print()
 
         if self.servers:
             print('--Connected Servers List--')
             [print(s) for s in self.servers]
         else:
-            print("No servers have been joined yet.")
+            print('No servers have been joined yet.')
         print()
-        print("--Users Registered--")
+        print('--Users Registered--')
         
         for user in self.users:
             print(user.userId + ' - ' + user.userUrl)
         print()
-        print("--Log--")
+        print('--Log--')
         
-        handler = getattr(self, 'check_for_user', None)
-        await handler(self.users[0])
+        handler = getattr(self, 'event_loop', None)
+        await handler()
         
     async def on_message(self, message):
         if (message.channel.is_private) and (message.author != self.user):
-            await self.send_message(message.channel, 'This is a response!')
-            await self.send_message(message.channel, self.kissAnime.downloadPage('https://kissanime.to/MyList/1084174')[:100])
+            await self.send_message(message.channel, self.kissAnime.downloadPage('https://kissanime.to/MyList/1084174')[:1000])
             
-    async def check_for_user(self, user):
+    async def handle_check_for_user(self, user):
         await self.send_message(user.userId, 'This is not a response!')
             
 if __name__ == '__main__':
