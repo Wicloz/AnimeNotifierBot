@@ -11,7 +11,7 @@ except ImportError:
 try:
     from bs4 import BeautifulSoup
 except ImportError:
-    pip.main(['install', 'bs4'])
+    pip.main(['install', 'BeautifulSoup4'])
 
 from config import Config
 from kissanimeConnector import KissDownloader
