@@ -42,7 +42,6 @@ class AnimeBot(discord.Client):
             with open(user_file, 'rb') as file:
                 self.users = pickle.load(file)
 
-        
     def run(self):
         return super().run(self.config.username, self.config.password)
     
@@ -131,20 +130,8 @@ class AnimeBot(discord.Client):
         #with open('bookmarkpage.html', 'w') as file:
         #    file.write(bookmarkPage)
         
-        # Turn the page into an list
-        newList = {}
-        table = bookmarkPage[bookmarkPage.find('<table class="listing">'):bookmarkPage.find('</table>')]
-        table = table[table.find('<tr class="trAnime'):table.find('</tbody>')]
-        rows = table.split('</tr>')
-        del rows[-1]
-
-        for row in rows:
-            row = row + '</tr>'
-            soup = BeautifulSoup(row, 'html.parser')
-            key = soup.find_all('a')[1].string.strip()
-            episode = soup.find_all('a')[2].string.replace('Episode', '').strip()
-            link = soup.find_all('a')[1].get('href')
-            newList[key] = (episode, link)
+        # Turn the page into a list
+        newList = self.get_list_from_bookmarks(bookmarkPage)
         
         # Load the old list from the file
         oldList = {}
@@ -172,6 +159,23 @@ class AnimeBot(discord.Client):
                 file.write('%s: %s\n' % (key.replace(':', colonId), value))
         
         print('Done checking bookmarks for \'%s\'!' % user.id)
+
+    def get_list_from_bookmarks(self, content):
+        dataList = {}
+        table = content[content.find('<table class="listing">'):content.find('</table>')]
+        table = table[table.find('<tr class="trAnime'):table.find('</tbody>')]
+        rows = table.split('</tr>')
+        del rows[-1]
+
+        for row in rows:
+            row += '</tr>'
+            soup = BeautifulSoup(row, 'html.parser')
+            key = soup.find_all('a')[1].string.strip()
+            episode = soup.find_all('a')[2].string.replace('Episode', '').strip()
+            link = soup.find_all('a')[1].get('href')
+            dataList[key] = (episode, link)
+
+        return dataList
 
 if __name__ == '__main__':
     bot = AnimeBot()
