@@ -135,13 +135,14 @@ class AnimeBot(discord.Client):
         
         # Load the old list from the file
         oldList = {}
-        for line in open(cachedFilePath, 'r'):
-            try:
-                key, value = line.strip().split(': ')
-                key = key.replace(colonId, ':')
-                oldList[key] = tuple(value.replace('\'', '').replace('(', '').replace(')', '').split(', '))
-            except:
-                0 #best code evah
+        if os.path.isfile(cachedFilePath):
+            for line in open(cachedFilePath, 'r'):
+                try:
+                    key, value = line.strip().split(': ')
+                    key = key.replace(colonId, ':')
+                    oldList[key] = tuple(value.replace('\'', '').replace('(', '').replace(')', '').split(', '))
+                except:
+                    0 #best code evah
         
         # Compare the lists and send messages
         for key, newValue in newList.items():
