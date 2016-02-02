@@ -12,13 +12,8 @@ import shutil
 import json
 
 from urllib.parse import urlparse
-
 from datetime import timedelta
 
-try:
-    import kissanime_dl
-except ImportError:
-    pip.main(['install', 'kissanime_dl'])
 try:
     from lxml import html
 except ImportError:
@@ -124,3 +119,4 @@ class KissDownloader():
         print("Success!")
         #ASSUMING PAGE IS LOADED STARTING HERE
         return str(r.content);
+

@@ -1,7 +1,13 @@
 import asyncio
-import discord
-import win_unicode_console
 import pip
+try:
+    import discord
+except:
+    pip.main(['install', 'git+https://github.com/Rapptz/discord.py@async#egg=discord.py'])
+try:
+    import win_unicode_console
+except:
+    0
 
 try:
     from lxml import html
@@ -53,7 +59,10 @@ class AnimeBot(discord.Client):
             await asyncio.sleep(300)
     
     async def on_ready(self):
-        win_unicode_console.enable()
+        try:
+            win_unicode_console.enable()
+        except:
+            0
 
         print('Connected!\n')
         print('Username: %s' % self.user.name)
@@ -160,3 +169,4 @@ class AnimeBot(discord.Client):
 if __name__ == '__main__':
     bot = AnimeBot()
     bot.run()
+
