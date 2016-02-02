@@ -69,7 +69,7 @@ class KissDownloader():
         js_var_t_href = '{uri.scheme}://{uri.netloc}/'.format(uri=urlparse(url))
 
         if("https://kissanime.to" not in js_var_t_href):
-            printClr(url + "does not go to kissanime.to!", Color.BOLD, Color.RED)
+            print(url + "does not go to kissanime.to!")
             printError()
             return
 
@@ -113,12 +113,12 @@ class KissDownloader():
 
         URL_ERROR_URL = "https://kissanime.to/Error"
         if(r.url == URL_ERROR_URL):
-            printClr("Url error at " + url, Color.BOLD, Color.RED)
+            print("Url error at " + url)
             print("Check your url and try again")
             return
 
         if(r.status_code != requests.codes.ok):
-            printClr("Error: HTTP RESPONSE CODE: " + str(r.status_code), Color.BOLD, Color.RED)
+            print("Error: HTTP RESPONSE CODE: " + str(r.status_code))
             return
 
         print("Success!")
