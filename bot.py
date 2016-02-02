@@ -111,7 +111,7 @@ class AnimeBot(discord.Client):
         colonId = '(*:*)'
         
         # Download the users bookmark page
-        bookmarkPage = self.kissAnime.downloadPage(user.userUrl)
+        bookmarkPage = self.kissAnime.downloadPage(user.userUrl).replace('\\r\\n', '')
         #with open('bookmarkpage.html', 'r') as file:
         #    bookmarkPage = file.read()
         
@@ -125,9 +125,9 @@ class AnimeBot(discord.Client):
         for row in rows:
             row = row + '</tr>'
             soup = BeautifulSoup(row, 'html.parser')
-            key = soup.td.a.string.strip()
-            episode = soup.find_all('a')[1].string.replace('Episode', '').strip()
-            link = soup.td.a.get('href')
+            key = soup.find_all('a')[1].string.strip()
+            episode = soup.find_all('a')[2].string.replace('Episode', '').strip()
+            link = soup.find_all('a')[1].get('href')
             newList[key] = (episode, link)
         
         # Load the old list from the file
