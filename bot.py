@@ -1,5 +1,6 @@
 import asyncio
 import pip
+import pickle
 import os.path
 try:
     import discord
@@ -27,8 +28,9 @@ class User(object):
     def __init__(self, userId, userUrl):
         self.discordUser = discord.User()
         self.discordUser.id = userId
-        self.userId = userId
-        self.userUrl = userUrl
+        self.id = userId
+        self.kissUrl = userUrl
+        self.malUrl = ''
 
 class AnimeBot(discord.Client):
     def __init__(self, config_file='config/options.txt', user_file='config/users.txt'):
@@ -37,14 +39,9 @@ class AnimeBot(discord.Client):
         self.kissAnime = KissDownloader()
         self.users = []
         if os.path.isfile(user_file):
-            for line in open(user_file, 'r'):
-                equalPos = line.find('-')
-                first = line.find('\'', 0, equalPos) + 1
-                second = line.find('\'', first, equalPos)
-                third = line.find('\'', equalPos) + 1
-                fourth = line.find('\'', third)
-                user = User(line[first:second], line[third:fourth])
-                self.users.append(user)
+            with open(user_file, 'rb') as file:
+                self.users = pickle.load(file)
+
         
     def run(self):
         return super().run(self.config.username, self.config.password)
@@ -53,11 +50,11 @@ class AnimeBot(discord.Client):
         await asyncio.sleep(1)
         while True:
             for user in self.users:
-                await self.handle_check_for_user(user)
-                #try:
-                #    await self.handle_check_for_user(user)
-                #except:
-                #    print('Could not check updates for %s' % user.userId)
+                try:
+                    await self.handle_check_for_user(user)
+                except Exception as e:
+                    print(e)
+                    print('Could not check updates for %s' % user.id)
             await asyncio.sleep(300)
     
     async def on_ready(self):
@@ -84,7 +81,7 @@ class AnimeBot(discord.Client):
         print('--Users Registered--')
         if len(self.users) > 0:
             for user in self.users:
-                print(user.userId + ' - ' + user.userUrl)
+                print(user.id + ' - ' + user.kissUrl)
         else:
             print('No users have registered yet.')
         print()
@@ -95,9 +92,11 @@ class AnimeBot(discord.Client):
         
     async def on_message(self, message):
         if (message.channel.is_private) and (message.author != self.user) and (message.content.startswith(self.config.command_prefix + 'register')):
-            url = message.content[message.content.find(' '):].replace(' ', '')
-            if url.startswith('https://kissanime.to/MyList/'):
-                self.register_user(message.author.id, url)
+            data = message.content[message.content.find(' '):].replace(' ', '')
+            if data.startswith('https://kissanime.to/MyList/'):
+                self.register_user(message.author.id, data)
+            elif data.isdigit():
+                self.register_user(message.author.id, 'https://kissanime.to/MyList/' + data)
             
     def register_user(self, userId, userUrl):
         if self.get_user(userId) == 0:
@@ -108,26 +107,27 @@ class AnimeBot(discord.Client):
             self.get_user(userId).userUrl = userUrl
             print('Upadated bookmark url for user \'%s\'' % userId)
         
-        with open('config/users.txt', 'w') as file:
-            for user in self.users:
-                file.write('\'%s\' - \'%s\',\n' % (user.userId, user.userUrl))
+        with open('config/users.txt', 'wb') as file:
+            pickle.dump(self.users, file)
     
     def get_user(self, userId):
         for user in self.users:
-            if user.userId == userId:
+            if user.id == userId:
                 return user
         return 0
     
     async def handle_check_for_user(self, user):
-        print('Checking bookmarks for \'%s\'...' % user.userId)
-        cachedFilePath = 'cache/%s.dat' % user.userId
+        print('Checking bookmarks for \'%s\'...' % user.id)
+        cachedFilePath = 'cache/%s.dat' % user.id
         kissDomain = 'https://kissanime.to'
         colonId = '(*:*)'
         
         # Download the users bookmark page
-        bookmarkPage = self.kissAnime.downloadPage(user.userUrl).replace('\\r\\n', '')
-        #with open('bookmarkpage.html', 'r') as file:
-        #    bookmarkPage = file.read()
+        #bookmarkPage = self.kissAnime.downloadPage(user.kissUrl).replace('\\r\\n', '')
+        #with open('bookmarkpage.html', 'w') as file:
+        #    file.write(bookmarkPage)
+        with open('bookmarkpage.html', 'r') as file:
+            bookmarkPage = file.read()
         
         # Turn the page into an list
         newList = {}
@@ -169,7 +169,7 @@ class AnimeBot(discord.Client):
             for key, value in newList.items():
                 file.write('%s: %s\n' % (key.replace(':', colonId), value))
         
-        print('Done checking bookmarks for \'%s\'!' % user.userId)
+        print('Done checking bookmarks for \'%s\'!' % user.id)
 
 if __name__ == '__main__':
     bot = AnimeBot()
