@@ -96,6 +96,9 @@ class AnimeBot(discord.Client):
                 self.register_user(message.author.id, data)
             elif data.isdigit():
                 self.register_user(message.author.id, 'https://kissanime.to/MyList/' + data)
+        else:
+            page = self.kissAnime.downloadPage(message.content).replace('\\r\\n', '')
+            print(self.kiss_latest_episode(page))
             
     def register_user(self, userId, userUrl):
         if self.get_user(userId) == 0:
@@ -131,7 +134,7 @@ class AnimeBot(discord.Client):
         #    file.write(bookmarkPage)
         
         # Turn the page into a list
-        newList = self.get_list_from_bookmarks(bookmarkPage)
+        newList = self.kiss_list_from_bookmarks(bookmarkPage)
         
         # Load the old list from the file
         oldList = {}
@@ -161,7 +164,7 @@ class AnimeBot(discord.Client):
         
         print('Done checking bookmarks for \'%s\'!' % user.id)
 
-    def get_list_from_bookmarks(self, content):
+    def kiss_list_from_bookmarks(self, content):
         dataList = {}
         table = content[content.find('<table class="listing">'):content.find('</table>')]
         table = table[table.find('<tr class="trAnime'):table.find('</tbody>')]
@@ -177,6 +180,12 @@ class AnimeBot(discord.Client):
             dataList[key] = (episode, link)
 
         return dataList
+
+    def kiss_latest_episode(self, content):
+        bowl = BeautifulSoup(content, 'html.parser').table
+        soup = BeautifulSoup(str(bowl), 'html.parser')
+        episode = soup.find_all('a')[0].string[-3:]
+        return episode
 
 if __name__ == '__main__':
     bot = AnimeBot()
