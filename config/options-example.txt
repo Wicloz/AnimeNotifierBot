@@ -1,7 +1,12 @@
 [Credentials]
 ; Credentials of the bot
-Username = email@domain.com
-Password = password1234
+BotUsername = email@domain.com
+BotPassword = password1234
+
+; Credentials of a mal account used to acces the api
+; Just using the default one will work fine
+MalUsername = wicloz.animebot@gmail.com
+MalPassword = CookieJuice@3.14
 
 [Chat]
 ; Prefix for all the chat commands
