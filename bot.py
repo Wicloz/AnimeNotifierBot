@@ -1,5 +1,6 @@
 import asyncio
 import pip
+import os.path
 try:
     import discord
 except:
@@ -30,19 +31,20 @@ class User(object):
         self.userUrl = userUrl
 
 class AnimeBot(discord.Client):
-    def __init__(self, config_file='config/options.txt'):
+    def __init__(self, config_file='config/options.txt', user_file='config/users.txt'):
         super().__init__()
         self.config = Config(config_file)
         self.kissAnime = KissDownloader()
         self.users = []
-        for line in open('config/users.txt', 'r'):
-            equalPos = line.find('-')
-            first = line.find('\'', 0, equalPos) + 1
-            second = line.find('\'', first, equalPos)
-            third = line.find('\'', equalPos) + 1
-            fourth = line.find('\'', third)
-            user = User(line[first:second], line[third:fourth])
-            self.users.append(user)
+        if os.path.isfile(user_file):
+            for line in open(user_file, 'r'):
+                equalPos = line.find('-')
+                first = line.find('\'', 0, equalPos) + 1
+                second = line.find('\'', first, equalPos)
+                third = line.find('\'', equalPos) + 1
+                fourth = line.find('\'', third)
+                user = User(line[first:second], line[third:fourth])
+                self.users.append(user)
         
     def run(self):
         return super().run(self.config.username, self.config.password)
@@ -72,19 +74,22 @@ class AnimeBot(discord.Client):
         print('Command prefix is %s'% self.config.command_prefix)
         print()
 
+        print('--Connected Servers List--')
         if self.servers:
-            print('--Connected Servers List--')
             [print(s) for s in self.servers]
         else:
             print('No servers have been joined yet.')
         print()
+        
         print('--Users Registered--')
-        
-        for user in self.users:
-            print(user.userId + ' - ' + user.userUrl)
+        if len(self.users) > 0:
+            for user in self.users:
+                print(user.userId + ' - ' + user.userUrl)
+        else:
+            print('No users have registered yet.')
         print()
-        print('--Log--')
         
+        print('--Log--')
         handler = getattr(self, 'event_loop', None)
         await handler()
         
