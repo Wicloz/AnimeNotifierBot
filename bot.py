@@ -123,11 +123,13 @@ class AnimeBot(discord.Client):
         colonId = '(*:*)'
         
         # Download the users bookmark page
-        #bookmarkPage = self.kissAnime.downloadPage(user.kissUrl).replace('\\r\\n', '')
+        if os.path.isfile('bookmarkpage.html'):
+            with open('bookmarkpage.html', 'r') as file:
+                bookmarkPage = file.read()
+        else:
+            bookmarkPage = self.kissAnime.downloadPage(user.kissUrl).replace('\\r\\n', '')
         #with open('bookmarkpage.html', 'w') as file:
         #    file.write(bookmarkPage)
-        with open('bookmarkpage.html', 'r') as file:
-            bookmarkPage = file.read()
         
         # Turn the page into an list
         newList = {}
