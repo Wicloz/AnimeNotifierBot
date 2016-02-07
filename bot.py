@@ -31,6 +31,7 @@ class User(object):
         self.id = userId
         self.kissUrl = userUrl
         self.malUrl = ''
+        self.ttsChannel = ''
 
 class AnimeBot(discord.Client):
     def __init__(self, config_file='config/options.txt', user_file='config/users.txt'):
@@ -50,7 +51,7 @@ class AnimeBot(discord.Client):
         while True:
             for user in self.users:
                 try:
-                    await self.handle_check_for_user(user)
+                    await self.check_for_user(user)
                 except Exception as e:
                     print(e)
                     print('Could not check updates for %s' % user.id)
@@ -90,25 +91,36 @@ class AnimeBot(discord.Client):
         await handler()
         
     async def on_message(self, message):
-        if (message.channel.is_private) and (message.author != self.user) and (message.content.startswith(self.config.command_prefix + 'register')):
-            data = message.content[message.content.find(' '):].replace(' ', '')
-            if data.startswith('https://kissanime.to/MyList/'):
-                self.register_user(message.author.id, data)
-            elif data.isdigit():
-                self.register_user(message.author.id, 'https://kissanime.to/MyList/' + data)
-        else:
-            page = self.kissAnime.downloadPage(message.content).replace('\\r\\n', '')
-            print(self.kiss_latest_episode(page))
+        if (message.channel.is_private) and (message.author != self.user) and (message.content.startswith(self.config.command_prefix)):
+            command = message.content[:message.content.find(' ')].replace(self.config.command_prefix, '')
+            data = message.content[message.content.find(' ')+1:]
+
+            if command == 'register':
+                if data.startswith('https://kissanime.to/MyList/'):
+                    self.handle_register_user(message.author.id, data)
+                elif data.isdigit():
+                    self.handle_register_user(message.author.id, 'https://kissanime.to/MyList/' + data)
+            if command == 'settts':
+                self.handle_set_tts(message.author.id, data)
             
-    def register_user(self, userId, userUrl):
+    def handle_register_user(self, userId, userUrl):
         if self.get_user(userId) == 0:
             user = User(userId, userUrl)
             self.users.append(user)
             print('Added user \'%s\' with url \'%s\'' % (userId, userUrl))
         else:
             self.get_user(userId).userUrl = userUrl
-            print('Upadated bookmark url for user \'%s\'' % userId)
+            print('Updated bookmark url for user \'%s\'' % userId)
         
+        with open('config/users.txt', 'wb') as file:
+            pickle.dump(self.users, file)
+
+    def handle_set_tts(self, userId, channel):
+        user = self.get_user(userId)
+        if not user == 0:
+            user.ttsChannel = channel
+            print('Updated tts channel for \'%s\'' % userId)
+
         with open('config/users.txt', 'wb') as file:
             pickle.dump(self.users, file)
     
@@ -118,7 +130,7 @@ class AnimeBot(discord.Client):
                 return user
         return 0
     
-    async def handle_check_for_user(self, user):
+    async def check_for_user(self, user):
         print('Checking bookmarks for \'%s\'...' % user.id)
         cachedFilePath = 'cache/%s.dat' % user.id
         kissDomain = 'https://kissanime.to'
@@ -153,9 +165,14 @@ class AnimeBot(discord.Client):
                 oldValue = oldList[key]
             except:
                 oldValue = ('000', '')
-                
+
             if oldValue[0] != newValue[0]:
                 await self.send_message(user.discordUser, 'The anime **%s** has just aired episode %s!\n%s' % (key, newValue[0], kissDomain + newValue[1]))
+                if (user.ttsChannel) and not (user.ttsChannel == ''):
+                    channel = self.get_channel_class(user.ttsChannel.split('/')[0], user.ttsChannel.split('/')[1])
+                    if not channel == 0:
+                        message = 'The any may %s has just aired episode %s!' % (key.replace('.', '').replace('!', '').replace(',', '').replace(':', '').replace(';', ''), newValue[0])
+                        await self.send_message(channel, message, tts=True)
         
         # Save the new list into the file
         with open(cachedFilePath, 'w') as file:
@@ -163,6 +180,15 @@ class AnimeBot(discord.Client):
                 file.write('%s: %s\n' % (key.replace(':', colonId), value))
         
         print('Done checking bookmarks for \'%s\'!' % user.id)
+
+    def get_channel_class(self, serverId, channelId):
+        for server in self.servers:
+            if server.id == serverId:
+                for channel in server.channels:
+                    if channel.id == channelId:
+                        return channel
+        return 0
+
 
     def kiss_list_from_bookmarks(self, content):
         dataList = {}
