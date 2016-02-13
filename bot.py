@@ -164,7 +164,7 @@ class AnimeBot(discord.Client):
             try:
                 oldValue = oldList[key]
             except:
-                oldValue = ('000', '')
+                oldValue = (newValue, '')
 
             if oldValue[0] != newValue[0]:
                 await self.send_message(user.discordUser, 'The anime **%s** has just aired episode %s!\n%s' % (key, newValue[0], kissDomain + newValue[1]))
