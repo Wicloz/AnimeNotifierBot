@@ -63,6 +63,8 @@ class AnimeBot(discord.Client):
         except:
             0
 
+        await self.change_status(game=discord.Game(name='with Eruru\'s tail'))
+
         print('Connected!\n')
         print('Username: %s' % self.user.name)
         print('Bot ID: %s' % self.user.id)
@@ -198,12 +200,15 @@ class AnimeBot(discord.Client):
         del rows[-1]
 
         for row in rows:
-            row += '</tr>'
-            soup = BeautifulSoup(row, 'html.parser')
-            key = soup.find_all('a')[1].string.strip()
-            episode = soup.find_all('a')[2].string.replace('Episode', '').strip()
-            link = soup.find_all('a')[1].get('href')
-            dataList[key] = (episode, link)
+            try:
+                row += '</tr>'
+                soup = BeautifulSoup(row, 'html.parser')
+                key = soup.find_all('a')[1].string.strip()
+                episode = soup.find_all('a')[2].string.replace('Episode', '').strip()
+                link = soup.find_all('a')[1].get('href')
+                dataList[key] = (episode, link)
+            except:
+                0
 
         return dataList
 
