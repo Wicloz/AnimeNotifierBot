@@ -204,7 +204,7 @@ class AnimeBot(discord.Client):
                 row += '</tr>'
                 soup = BeautifulSoup(row, 'html.parser')
                 key = soup.find_all('a')[1].string.strip()
-                episode = soup.find_all('a')[2].string.replace('Episode', '').strip()
+                episode = soup.find_all('a')[2].string.replace('Episode', '').replace('(', '[').replace(')', ']').strip()
                 link = soup.find_all('a')[1].get('href')
                 dataList[key] = (episode, link)
             except:
